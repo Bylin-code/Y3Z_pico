@@ -2,6 +2,7 @@
 #include "pico/stdlib.h"
 #include "bsp/board.h"
 #include "tusb.h"
+#include "pico/stdio_usb.h" 
 #include "midi_helper.h"
 
 #define MIDI_CHANNEL 0

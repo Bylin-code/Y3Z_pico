@@ -33,14 +33,16 @@ add_executable(main
 pico_enable_stdio_usb(main 0)
 pico_enable_stdio_uart(main 1)
 
-target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(main PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
 pico_add_extra_outputs(main)
 
 # Linked libraries
 target_link_libraries(main 
-    PRIVATE 
+    PUBLIC 
         pico_stdlib 
+        pico_stdio_usb
         tinyusb_device 
         tinyusb_board
 )
+ 
