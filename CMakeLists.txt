@@ -26,14 +26,20 @@ pico_sdk_init()
 
 add_executable(main
   main.c
-  usb_descriptors.c
+  ads1115.c
+  MPU6050.c
+  ssd1306.c
   midi_helper.c
+  usb_descriptors.c
+  tusb_config.h
 )
 
-pico_enable_stdio_usb(main 0)
-pico_enable_stdio_uart(main 1)
+pico_enable_stdio_usb(main 1)
+pico_enable_stdio_uart(main 0)
 
-target_include_directories(main PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(main PUBLIC
+  ${CMAKE_CURRENT_LIST_DIR}
+)
 
 pico_add_extra_outputs(main)
 
@@ -41,8 +47,8 @@ pico_add_extra_outputs(main)
 target_link_libraries(main 
     PUBLIC 
         pico_stdlib 
-        pico_stdio_usb
         tinyusb_device 
         tinyusb_board
+        hardware_i2c
 )
  

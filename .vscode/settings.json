@@ -38,6 +38,9 @@
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "files.associations": {
         "stdio_usb.h": "c",
-        "midi_helper.h": "c"
+        "midi_helper.h": "c",
+        "pico.h": "c",
+        "ads1115.h": "c",
+        "ssd1306.h": "c"
     }
 }
